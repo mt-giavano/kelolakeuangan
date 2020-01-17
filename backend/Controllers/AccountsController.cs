@@ -1,18 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+﻿using kelolakeuangan.Data;
+using kelolakeuangan.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using kelolakeuangan.Data;
-using kelolakeuangan.Models;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
+using System;
+using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
+using System.Security.Claims;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace kelolakeuangan.Controllers
 {
@@ -86,7 +85,7 @@ namespace kelolakeuangan.Controllers
         // GET: api/Accounts
         [Authorize]
         [HttpGet("list")]
-        public async Task<ActionResult<IEnumerable<Account>>> GetAccounts(string username, string pass)
+        public async Task<ActionResult<IEnumerable<Account>>> GetAccounts()
         {
 
             return await _context.Accounts
@@ -96,18 +95,8 @@ namespace kelolakeuangan.Controllers
                 .ToListAsync();
         }
 
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<Account>>> GetAccounts()
-        //{
-        //    return await _context.Accounts
-        //       .Include(i => i.Incomes)
-        //       .Include(w => w.Wallets)
-        //       .Include(s => s.Spendings)
-        //        .ToListAsync();
-        //}
-
         // GET: api/Accounts/5
-        [Authorize]
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Account>> GetAccount(int id)
         {
@@ -116,7 +105,6 @@ namespace kelolakeuangan.Controllers
                 .Include(w => w.Wallets)
                 .Include(s => s.Spendings)
                 .FirstOrDefaultAsync(i => i.Id_Account == id);
-                //.FindAsync(id);
 
             if (account == null)
             {

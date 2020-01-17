@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace kelolakeuangan.Data
 {
@@ -129,7 +128,7 @@ namespace kelolakeuangan.Data
                     Spendings = new List<Spending>(db.Spendings.OrderBy(i => i.Id_Spending).Skip(2).Take(2))
                 }
             };
-               
+
             return accounts;
         }
 

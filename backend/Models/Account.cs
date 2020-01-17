@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace kelolakeuangan.Models
 {
     public class Account
     {
-     
+
         [Key]
         public int Id_Account { get; set; }
 
@@ -21,7 +19,7 @@ namespace kelolakeuangan.Models
         public DateTime DOB { get; set; }
 
         public string Email { get; set; }
-        
+
         public int? Id_Family { get; set; }
 
 

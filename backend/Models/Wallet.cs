@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace kelolakeuangan.Models
 {
@@ -12,7 +8,7 @@ namespace kelolakeuangan.Models
         public int Id_Wallet { get; set; }
 
         public string Name { get; set; }
-        
+
         public double Limit { get; set; }
 
         //public int Id_Account { get; set; }

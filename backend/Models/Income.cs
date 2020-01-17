@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace kelolakeuangan.Models
 {
@@ -12,7 +9,7 @@ namespace kelolakeuangan.Models
         public int Id_Income { get; set; }
 
         public DateTime Date { get; set; }
-        
+
         public double Amount { get; set; }
 
         public string Note { get; set; }
